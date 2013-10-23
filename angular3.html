@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>Angular Directives and Data Binding</title>
+	</head>
+	<body ng-init="customers=[{name:'Mike',city:'San Francisco'},{name:'John',city:'Boulder'},{name:'Jake',city:'New York'},{name:'Jake',city:'Atlanta'}]">
+		<div class="container">
+			Name:
+			<br>
+			<input type="text" ng-model="name">
+			<ul>
+				<li ng-repeat="c in customers | filter:name | orderBy:'city'"> {{c.name | uppercase}} - {{c.city | lowercase}} </li>
+			</ul>
+		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	</body>
+</html>

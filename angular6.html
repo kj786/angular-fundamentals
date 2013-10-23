@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+	<head>
+		<title> Modules, Routes, and Factories</title>
+	</head>
+	<body>
+		<div>
+			<!-- placeholder for views -->
+			<div ng-view></div>
+		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script>
+		// module 
+		var demoApp = angular.module('demoApp',[])
+		// config and routes
+		demoApp.config(function ($routeProvider) {
+			$routeProvider
+				.when('/view1',
+						{
+							controller: 'SimpleController',
+							templateUrl: 'partials/view1.html'
+						})
+				.when('/view2',
+						{
+							controller: 'SimpleController',
+							templateUrl: 'partials/view2.html'
+						})
+				.otherwise({redirectTo:'/view1'})
+		})
+		// controller
+		function SimpleController($scope) {
+			$scope.customers = [
+				{name:'Mike',city:'San Francisco'},
+				{name:'John',city:'Boulder'},
+				{name:'Jake',city:'New York'},
+				{name:'Jake',city:'Atlanta'}
+			]
+			// handle for adding data to model
+			$scope.addCustomer = function(){
+				$scope.customers.push(
+					{
+					name: $scope.newCustomer.name,
+					city: $scope.newCustomer.city
+					}
+				)
+			}
+		}
+		demoApp.controller('SimpleController', SimpleController)
+	</script>
+	</body>
+</html>

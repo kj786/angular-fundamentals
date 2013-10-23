@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>Angular Directives and Data Binding</title>
+	</head>
+	<body ng-init="names=['Mike','John','Derek','Jared']">
+		<div class="container">
+			<ul>
+				<li ng-repeat="name in names"> {{name}} </li>
+			</ul>
+		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	</body>
+</html>
